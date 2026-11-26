@@ -1,0 +1,29 @@
+{
+  "name": "zenburn-light",
+  "displayName": "Zenburn Light",
+  "description": "A light, paper-toned variant of Zenburn built from its darker hues.",
+  "version": "0.1.0",
+  "publisher": "mjosten",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "zenburn",
+    "light",
+    "low contrast",
+    "theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Zenburn Light",
+        "uiTheme": "vs",
+        "path": "./themes/zenburn-light-color-theme.json"
+      }
+    ]
+  }
+}
