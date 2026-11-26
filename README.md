@@ -27,9 +27,17 @@ Selection, find, diff and merge highlights reuse the original dark Zenburn color
 
 ## Install
 
+Download `zenburn-light-<version>.vsix` from the [latest release](https://github.com/MalteJosten/zenburn-light/releases/latest), then run `code --install-extension zenburn-light-<version>.vsix`.
+
+To build from source instead:
+
 ```sh
 python3 build_vsix.py
 code --install-extension zenburn-light-0.1.0.vsix
 ```
 
 Then choose **Preferences: Color Theme → Zenburn Light**. After you edit the theme JSON, run both commands again and reload the window.
+
+## Releasing
+
+Bump `version` in `package.json` and push to `main`. The Release workflow builds the `.vsix` and publishes it as release `version-<version>`.

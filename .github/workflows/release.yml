@@ -1,0 +1,29 @@
+name: Release
+
+# Builds the .vsix and publishes it as a GitHub release whenever package.json
+# carries a version that has no release yet (tag: version-<version>).
+on:
+  push:
+    branches: [main]
+    paths: [package.json, .github/workflows/release.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(python3 -c "import json; print(json.load(open('package.json'))['version'])")
+          tag="version-$version"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "$tag is already released"; exit 0
+          fi
+          vsix=$(python3 build_vsix.py)
+          gh release create "$tag" "$vsix" --title "Zenburn Light $version" --target "$GITHUB_SHA" --generate-notes
