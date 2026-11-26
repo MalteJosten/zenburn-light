@@ -37,3 +37,8 @@ code --install-extension zenburn-light-0.1.0.vsix
 ```
 
 Then choose **Preferences: Color Theme → Zenburn Light**. After you edit the theme JSON, run both commands again and reload the window.
+
+---
+
+This theme was made with Claude Code.
+If something looks off or if you have other problems/suggestions, please open an issue.
